@@ -1,0 +1,24 @@
+<table cellspacing="0">
+<tr>
+<td id="mainmenu">
+<!-- start module menu loop -->
+<{foreach item=module from=$block.modules}>
+<a class="menuMain" href="<{$xoops_url}>/modules/<{$module.directory}>/"> <img src=<{$xoops_imageurl}>folder_icon.gif>&nbsp;&nbsp;<{$module.name}></a>
+<{foreach item=sublink from=$module.sublinks}>
+<a class="menuSub" href="<{$sublink.url}>">- <{$sublink.name}></a>
+<{/foreach}>
+<{/foreach}>
+<!-- end module menu loop -->
+<{if $xoops_isadmin}>
+<a class="menuMain" href="<{$xoops_url}>/admin.php"> <img src=<{$xoops_imageurl}>folder_icon.gif>&nbsp;&nbsp;Admin</a>
+<{/if}>
+<a class="menuMain" href="<{$xoops_url}>/user.php"><img src=<{$xoops_imageurl}>folder_icon.gif>&nbsp;&nbsp;Profile</a>
+<a class="menuMain" href="<{$xoops_url}>/user.php?op=logout"><img src=<{$xoops_imageurl}>folder_icon.gif>&nbsp;&nbsp;Logout</a>
+<br>
+<form style="margin-top: 0px;" action="<{$xoops_url}>/search.php" method="post">
+<input class="navinput" type="text" name="query" size="12" /><input type="hidden" name="action" value="results" /><br />
+&nbsp;<input type="image" src="<{$xoops_imageurl}>search" />
+</form>
+</td>
+</tr>
+</table>
